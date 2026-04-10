@@ -20,6 +20,67 @@ body {
     height: 100vh;
 }
 
+/* --- RESPONSIVE MOBILE VIEW --- */
+/* Breakpoint: Applies these styles to screens 768px wide or smaller */
+@media (max-width: 768px) {
+    
+    /* 1. Stack the panels vertically */
+    .registration-container {
+        flex-direction: column; 
+        width: 100%;            /* Ensure it fills the phone screen width */
+        height: auto;           /* Let the height adjust naturally */
+        margin: 0;
+        border-radius: 0;       /* Fill the screen entirely */
+    }
+
+    /* 2. Configure the Left (Teal) Panel for mobile */
+    .left-panel {
+        clip-path: none;        /* Remove the diagonal split */
+        width: 100%;
+        padding: 40px 20px;
+        min-height: 250px;      /* Give the branding some space */
+        flex: none;             /* Don't let it shrink */
+        order: 1;               /* Place at the top */
+    }
+
+    /* 3. Configure the Right (White) Panel for mobile */
+    .right-panel {
+        width: 100%;
+        padding: 40px 20px;
+        order: 2;               /* Place below the branding */
+        justify-content: flex-start; /* Align content to the top */
+    }
+
+    /* 4. Adjust the branding typography for mobile */
+    .welcome-text { font-size: 1rem; }
+    .main-title { font-size: 2.2rem; }
+    .logo-circle {
+        width: 100px;
+        height: 100px;
+        margin: 30px auto;
+    }
+
+    /* 5. Center the form elements and increase spacing */
+    .form-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .form-heading {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    /* 6. Ensure inputs look clean on small screens */
+    .input-group input, 
+    .input-group select {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+}
+
 .registration-container {
     display: flex;
     width: 1200px;
@@ -150,6 +211,24 @@ body {
     margin-top: 5px;
     font-weight: 600;
     display: none; /* Hidden by default */
+}
+
+.login-redirect {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--black);
+    font-size: 0.9rem;
+}
+
+.login-redirect a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-redirect a:hover {
+    color: #660808;
 }
 
 .hidden { display: none; }
