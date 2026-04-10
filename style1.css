@@ -95,6 +95,23 @@ body {
     letter-spacing: 2px;
     margin-bottom: 35px;
 }
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px; /* Prevents squashing */
+    min-height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;   /* Force it to stay circular */
+}
+
+.icon-circle img, .icon-circle span {
+    width: 60%;      /* Adjust icon size inside the circle */
+    height: auto;
+}
 
 /* 2. THE STUDENT / ADMIN BUTTONS */
 .tab-container {
