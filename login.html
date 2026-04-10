@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNS - User Login</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <div class="login-card">
+        <h1 class="main-title">USER LOGIN</h1>
+
+        <div class="tab-container">
+            <button id="studentTab" class="tab-btn active" onclick="showForm('student')">Student</button>
+            <button id="adminTab" class="tab-btn" onclick="showForm('admin')">Admin</button>
+        </div>
+
+        <div id="studentForm" class="form-container active">
+            <form action="/student-login" method="POST">
+                <div class="input-group">
+                    <span class="icon">👤</span> <input type="text" name="username" placeholder="Student Username" required>
+                </div>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" name="password" placeholder="Student Password" required>
+                </div>
+                
+                <div class="form-footer">
+                    <a href="/forgot-password" class="footer-link">Forgot Password?</a>
+                    <a href="register.html" class="footer-link">Register</a>
+                </div>
+                
+                 <div class="button-wrapper">
+                   <button type="submit" class="login-btn">LOGIN</button>
+               </div>
+            </form>
+        </div>
+
+        <div id="adminForm" class="form-container">
+            <form action="/admin-login" method="POST">
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" name="username" placeholder="Admin Username" required>
+                </div>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" name="password" placeholder="Admin Password" required>
+                </div>
+                
+                <div class="form-footer">
+                    <a href="/forgot-password" class="footer-link">Forgot Password?</a>
+                    <a href="register.html" class="footer-link">Register</a>
+                    </div>
+                
+                <div class="button-wrapper">
+                   <button type="submit" class="login-btn">LOGIN</button>
+               </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        function showForm(userType) {
+            // 1. Get all elements
+            const studentForm = document.getElementById('studentForm');
+            const adminForm = document.getElementById('adminForm');
+            const studentTab = document.getElementById('studentTab');
+            const adminTab = document.getElementById('adminTab');
+
+            // 2. Hide all forms and remove active class from all tabs
+            studentForm.classList.remove('active');
+            adminForm.classList.remove('active');
+            studentTab.classList.remove('active');
+            adminTab.classList.remove('active');
+
+            // 3. Show the selected form and highlight the clicked tab
+            if (userType === 'student') {
+                studentForm.classList.add('active');
+                studentTab.classList.add('active');
+            } else if (userType === 'admin') {
+                adminForm.classList.add('active');
+                adminTab.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
