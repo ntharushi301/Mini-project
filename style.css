@@ -23,61 +23,41 @@ body {
 /* --- RESPONSIVE MOBILE VIEW --- */
 /* Breakpoint: Applies these styles to screens 768px wide or smaller */
 @media (max-width: 768px) {
-    
-    /* 1. Stack the panels vertically */
+    /* Allow the whole body to scroll */
+    body {
+        height: auto; 
+        display: block; 
+        overflow-y: auto;
+        padding: 0;
+    }
+
     .registration-container {
-        flex-direction: column; 
-        width: 100%;            /* Ensure it fills the phone screen width */
-        height: auto;           /* Let the height adjust naturally */
-        margin: 0;
-        border-radius: 0;       /* Fill the screen entirely */
-    }
-
-    /* 2. Configure the Left (Teal) Panel for mobile */
-    .left-panel {
-        clip-path: none;        /* Remove the diagonal split */
+        flex-direction: column;
         width: 100%;
-        padding: 40px 20px;
-        min-height: 250px;      /* Give the branding some space */
-        flex: none;             /* Don't let it shrink */
-        order: 1;               /* Place at the top */
+        height: auto;      /* Let it grow as long as the form is */
+        min-height: 100vh; /* Ensure it covers the whole screen */
+        border-radius: 0;
+        box-shadow: none;
     }
 
-    /* 3. Configure the Right (White) Panel for mobile */
+    .left-panel {
+        clip-path: none;
+        width: 100%;
+        height: 250px;     /* Fixed height for the green branding */
+        padding: 20px;
+        flex: none;
+    }
+
     .right-panel {
         width: 100%;
-        padding: 40px 20px;
-        order: 2;               /* Place below the branding */
-        justify-content: flex-start; /* Align content to the top */
+        padding: 30px 20px;
+        background: white;
+        overflow: visible; /* Show Role and Year */
     }
 
-    /* 4. Adjust the branding typography for mobile */
-    .welcome-text { font-size: 1rem; }
-    .main-title { font-size: 2.2rem; }
-    .logo-circle {
-        width: 100px;
-        height: 100px;
-        margin: 30px auto;
-    }
-
-    /* 5. Center the form elements and increase spacing */
-    .form-wrapper {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-    }
-
-    .form-heading {
-        text-align: center;
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-
-    /* 6. Ensure inputs look clean on small screens */
-    .input-group input, 
-    .input-group select {
-        font-size: 1rem;
-        padding: 12px 0;
+    /* Ensure inputs don't zoom in on iPhone */
+    input, select {
+        font-size: 16px !important; 
     }
 }
 
@@ -115,14 +95,10 @@ body {
 }
 
 .logo-circle {
-    width: 120px;
-    height: 120px;
-    background-color: black;
-    border-radius: 50%;
+    margin: 20px auto; /* Centers horizontally */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
 }
 
 .logo-text { font-size: 2rem; font-weight: bold; }
@@ -230,5 +206,21 @@ body {
 .login-redirect a:hover {
     color: #660808;
 }
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px; /* Prevents squashing */
+    min-height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;   /* Force it to stay circular */
+}
 
+.icon-circle img, .icon-circle span {
+    width: 60%;      /* Adjust icon size inside the circle */
+    height: auto;
+}
 .hidden { display: none; }
