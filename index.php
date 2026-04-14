@@ -49,7 +49,6 @@ function isActiveForm($formName, $activeForm) {
         <div class="right-panel">
             <div class="form-wrapper <?php echo isActiveForm('register', $activeForm); ?>">
                 <h2 class="form-heading">Create Your Account</h2>
-                <?php echo showError($errors['register']); ?>
                 
                 <form id="registrationForm" action="http://127.0.0.1:8000/register" method="POST">
                     <div class="input-group">
